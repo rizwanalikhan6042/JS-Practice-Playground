@@ -1,31 +1,52 @@
-// Print a greeting message
-console.log("Hello, Good Morning");
-
-// Loop through numbers and print a phrase
-for (let i = 1; i <= 10; i++) {
-    console.log("Bismillahir Rahmanir Rahim");
+// Switch statement
+var quan = 90;
+switch (quan) {
+    case 9:
+        console.log('w1');
+        break;
+    case 10:
+        console.log('w2');
+        break;
+    case 90:
+        console.log('real 90');
+        break;
+    default:
+        console.log('ios');
 }
 
-// Map function to double each number in an array
-const numbers = [1, 5, 6, 7, 8];
-const newNumbers = numbers.map((num) => (num * 2));
-console.log(newNumbers);
+// Map and forEach methods on arrays
+let p = ["uti", "riz", "e"];
+const arr = p.filter(x => (x.length > 2));
+console.log(arr);
 
-// Map function to perform a mathematical operation on each number in an array
-const numbers1 = [10, 55, 61, 7, 8];
-const newM = numbers1.map((num) => num + 8 / 3);
-console.log(newM);
-
-// Print Arabic characters
-console.log('\u062F\u0639\u0627'); // Arabic characters for 'dua'
-
-// Modify array elements using forEach
-var arr = [2, 4, 5, 0];
-function declarativefunction() {
-    const res = arr.forEach(function (x, ind, array) {
-        array[ind] = x + 2;
-    });
-    console.log(arr);
-    return arr;
+// Reduce method to sum array elements
+var arr1 = [2, 20, 9, 7, 90];
+function declrfnred() {
+    var res = arr1.reduce(function (acc, item) {
+        acc += item;
+        return acc;
+    }, 0);
+    console.log(res);
 }
-declarativefunction();
+declrfnred();
+
+// Reduce method to multiply array elements
+function declrfnred() {
+    var res = arr1.reduce(function (acc, item) {
+        acc *= item;
+        return acc;
+    }, 9);
+    console.log(res);
+}
+declrfnred();
+
+// Reduce method to concatenate array elements into a string
+var str = ["rizwan", "is", "pagla", "diwana"];
+function decstrred() {
+    var ans = str.reduce(function (acc, item) {
+        acc = acc + item + ' ';
+        return acc;
+    }, "");
+    console.log(ans);
+}
+decstrred();
