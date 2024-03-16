@@ -1,0 +1,51 @@
+// Import the readline module for handling input/output from the command line
+const readline = require('readline');
+
+// Function to encrypt the message using XOR operation with the key
+function encrypt(message, key) {
+    const encrypted = [];
+    // Iterate through each character in the message
+    for (let i = 0; i < message.length; i++) {
+        // Perform XOR operation between the character code and the key
+        encrypted.push(message.charCodeAt(i) ^ key);
+    }
+    // Return the array of encrypted character codes
+    return encrypted;
+}
+
+// Function to decrypt the encrypted message using XOR operation with the key
+function decrypt(encrypted, key) {
+    let decrypted = '';
+    // Iterate through each encrypted character code
+    for (let i = 0; i < encrypted.length; i++) {
+        // Perform XOR operation between the encrypted character code and the key
+        decrypted += String.fromCharCode(encrypted[i] ^ key);
+    }
+    // Return the decrypted message
+    return decrypted;
+}
+
+// Create an interface for reading input from the command line
+const rl = readline.createInterface({
+    input: process.stdin, // Set input to standard input (keyboard)
+    output: process.stdout // Set output to standard output (console)
+});
+
+// Prompt the user to enter the message to encrypt
+rl.question('Enter the message to encrypt: ', (message) => {
+    // Prompt the user to enter the encryption key
+    rl.question('Enter the encryption key (an integer): ', (key) => {
+        // Encrypt the message using the provided key
+        const encrypted = encrypt(message, parseInt(key));
+        // Display the encrypted message
+        console.log('Encrypted:', encrypted.join(' '));
+
+        // Decrypt the encrypted message using the same key
+        const decrypted = decrypt(encrypted, parseInt(key));
+        // Display the decrypted message
+        console.log('Decrypted:', decrypted);
+
+        // Close the readline interface
+        rl.close();
+    });
+});
