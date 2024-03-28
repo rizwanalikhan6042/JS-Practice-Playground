@@ -47,3 +47,36 @@ switch (quan) {
     }
 }
 
+const arr1 = [2, 20, 9, 7, 90];
+
+function decreducefn() {
+    var result = arr1.reduce(function (acc, item) {
+        acc += item;
+        return acc;
+    }, 0);
+    console.log(result);
+}
+
+decreducefn();
+
+function declrfnred() {
+    var res = arr1.reduce(function (acc, item) {
+        acc *= item;
+        return acc;
+    }, 9);
+    console.log(res);
+}
+
+declrfnred();
+
+var str = ["rizwan", "is", "pagla", "diwana"];
+
+function decstrred() {
+    var ans = str.reduce(function (acc, item) {
+        acc = acc + item + ' ';
+        return acc;
+    }, "");
+    console.log(ans);
+}
+
+decstrred();
