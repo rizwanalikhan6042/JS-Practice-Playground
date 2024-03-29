@@ -1,0 +1,48 @@
+const obj = {};
+const usernameRef = document.querySelector('.username');
+
+// Listen for keyup events on the username input
+usernameRef.addEventListener('keyup', function(e) {
+    // Update the 'name' property of the object with the input value
+    obj.name = e.target.value;
+    console.log(e.target.value);
+});
+
+const passwordRef = document.querySelector('.form input');
+const buttonRef = document.querySelector('.form button');
+const passwrdRef = document.querySelector('.form .password');
+
+// Listen for keyup events on the password input
+passwrdRef.addEventListener('keyup', function(e) {
+    // Update the 'password' property of the object with the input value
+    obj['password'] = e.target.value;
+});
+
+// Listen for click events on the button
+buttonRef.addEventListener('click', function(e) {
+    e.preventDefault();
+    console.log(obj);
+});
+
+// Listen for submit events on the form
+const formRef = document.querySelector('.form');
+formRef.addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Create an object containing form data
+    const result = [...formRef.elements].reduce(function(acc, item) {
+        if (item.name) {
+            acc[item.name] = item.value;
+        }
+        return acc;
+    }, {});
+    console.log(result);
+});
+
+// Listen for keyup events on the username input
+usernameRef.addEventListener('keyup', function(e) {
+    e.preventDefault();
+    if (e.key === 'Enter' || e.keyCode === 'Enter' || e.code === 13) {
+        const previewRef = document.querySelector('.preview');
+        previewRef.innerText = e.target.value;
+    }
+});
